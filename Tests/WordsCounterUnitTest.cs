@@ -81,5 +81,14 @@ namespace Tasks
             Assert.Equal(0.25, topTen[1].Value);
             Assert.Equal("bark", topTen[1].Key);
         }
+        
+        [Fact]
+        public void ReturnsTopTen()
+        {
+            var str1 = "When we think about the changes that the pandemic has brought in our lives in the past year";
+            var substrings1 = _counter.GenerateSubstrings(str1.Split(' '), 4);
+            var topTen = _counter.GetTopNHits(substrings1, 10).ToList();
+            Assert.Equal(10, topTen.Count);
+        }
     }
 }
